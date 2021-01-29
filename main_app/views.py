@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Movie
-import 
+
 
 # Create your views here.
 def home(request):
@@ -22,4 +22,12 @@ def movies_detail(request, movie_id):
 class MovieCreate(CreateView):
     model = Movie
     fields = '__all__'
+
+class MovieUpdate(UpdateView):
+    model = Movie
+    fields = '__all__'
+
+class MovieDelete(DeleteView):
+    model = Movie
+    success_url = '/movies/'   
     
