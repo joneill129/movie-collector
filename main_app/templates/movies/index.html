@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Movie List</h1>
+
+{% for movie in movies %}
+    <div class='card'>
+        <div class='card-content'>
+            <span class='card-title'>{{ movie.title }}</span>
+            <p>Year: {{ movie.year }}</p>
+            <p>Genre: {{ movie.genre }}</p>
+            <p>Language: {{ movie.language }}</p>
+            <p>Description: {{ movie.description }}</p>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
