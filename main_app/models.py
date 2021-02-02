@@ -8,6 +8,15 @@ WHERE = (
 )
 
 # Create your models here.
+class Snack(models.Model):
+    name = models.CharField(max_length=50, default='')
+
+    def __str__(self):
+        return self.name
+        
+    def get_absolute_url(self):
+        return reverse('snack_detail', kwargs={'pk': self.id})
+    
 
 class Movie(models.Model):
     title = models.CharField(max_length=100)
@@ -15,6 +24,7 @@ class Movie(models.Model):
     genre = models.CharField(max_length=100)
     language = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
+    snacks = models.ManyToManyField(Snack)
 
     def __str__(self):
         return self.title
