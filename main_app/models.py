@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 WHERE = (
     ('B', 'Bed'),
@@ -25,6 +26,7 @@ class Movie(models.Model):
     language = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     snacks = models.ManyToManyField(Snack)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
